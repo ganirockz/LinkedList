@@ -7,5 +7,9 @@ public class MyLinkedListTest {
 		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
 		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
 		MyLinkedList linkedlist = new MyLinkedList();
+		myFirstNode.setNext(mySecondNode);
+		mySecondNode.setNext(myThirdNode);
+		Assert.assertEquals(mySecondNode, myFirstNode.getNext());
+		Assert.assertEquals(myThirdNode, mySecondNode.getNext());
 	}
 }
