@@ -55,18 +55,41 @@ public class MyLinkedList {
 
 	public void insert(int newKey, int prevKey) {
 		MyNode<Integer> newNode = new MyNode<Integer>(newKey);
+		int flag = 0;
 		if (size() == 0) {
-			return;
+			System.out.println("No nodes to insert");
 		} else {
 			INode<Integer> tempNode = this.head;
 			while (!(tempNode.getKey().equals(prevKey))) {
 				tempNode = tempNode.getNext();
 			}
+			flag++;
 			newNode.setNext(tempNode.getNext());
 			tempNode.setNext(newNode);
 		}
+		if(flag == 0) {
+			System.out.println("There is no node with "+prevKey+" as key");
+		}
 	}
-
+	public void delete(int nodeKey) {
+		if(size() == 0) {
+			System.out.println("No nodes to delete");
+		}
+		else {
+			int flag = 0;
+			INode<Integer> tempNode = this.head;
+			INode<Integer> prevNode = this.head;
+			while (!(tempNode.getKey().equals(nodeKey))) {
+				prevNode = tempNode;
+				tempNode = tempNode.getNext();
+			}
+			prevNode.setNext(tempNode.getNext());
+			flag++;
+			if(flag == 0) {
+				System.out.println("No node with key as "+nodeKey);
+			}
+		}
+	}
 	public void printMyNodes() {
 		INode<Integer> tempNode = this.head;
 		if (tempNode == null) {
