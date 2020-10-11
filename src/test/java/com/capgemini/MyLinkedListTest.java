@@ -8,8 +8,8 @@ public class MyLinkedListTest {
 		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
 		MyLinkedList linkedlist = new MyLinkedList();
 		linkedlist.append(myThirdNode);
-		linkedlist.append(mySecondNode);
 		linkedlist.append(myFirstNode);
-		Assert.assertEquals(myThirdNode, linkedlist.getHead());
+		linkedlist.addInMiddle(mySecondNode);
+		Assert.assertEquals(mySecondNode, linkedlist.getHead().getNext());
 	}
 }
