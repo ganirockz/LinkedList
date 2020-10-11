@@ -11,7 +11,8 @@ public class MyLinkedListTest {
 		linkedlist.append(myFirstNode);
 		linkedlist.addInMiddle(mySecondNode);
 		linkedlist.insert(40, 30);
+		linkedlist.delete(40);
 		linkedlist.printMyNodes();
-		Assert.assertTrue(linkedlist.search(40));
+		Assert.assertEquals(3, linkedlist.size());
 	}
 }
