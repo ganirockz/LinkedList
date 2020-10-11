@@ -51,6 +51,21 @@ public class MyLinkedList {
 		myNode.setNext(tempNode.getNext());
 		tempNode.setNext(myNode);
 	}
+	public INode popLast() {
+		int size = size();
+		if(size == 0) {
+			System.out.println("No nodes present");
+		}
+		else {
+			INode<Integer> tempNode = this.head;
+			while(tempNode.getNext().getNext() != null) {
+				tempNode = tempNode.getNext();
+			}
+			tempNode.setNext(null);
+			this.tail = tempNode;
+		}
+		return this.tail;
+	}
 	public INode pop() {
 		if(size() == 0) {
 			System.out.println("No nodes present");
