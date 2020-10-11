@@ -1,10 +1,10 @@
 package com.capgemini;
 
-public class MyLinkedList {
+public class SortedLinkedList {
 	private INode<Integer> head;
 	private INode<Integer> tail;
 
-	public MyLinkedList() {
+	public SortedLinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
@@ -25,8 +25,10 @@ public class MyLinkedList {
 			this.head = myNode;
 		} else {
 			INode<Integer> tempNode = this.head;
-			this.head = myNode;
-			this.head.setNext(tempNode);
+			while(tempNode.getKey().compareTo(myNode.getKey())<0) {
+				tempNode = tempNode.getNext();
+			}
+			this.insert(myNode, tempNode);
 		}
 	}
 
@@ -66,21 +68,22 @@ public class MyLinkedList {
 			}
 			flag++;
 			newNode.setNext(tempNode);
-			if (tempNode == head) {
+			if(tempNode == head) {
 				this.setHead(newNode);
-			} else {
+			}
+			else {
 				prevNode.setNext(newNode);
 			}
 		}
-		if (flag == 0) {
-			System.out.println("There is no node with " + nextNode.getKey() + " as key");
+		if(flag == 0) {
+			System.out.println("There is no node with "+nextNode.getKey()+" as key");
 		}
 	}
-
 	public void delete(int nodeKey) {
-		if (size() == 0) {
+		if(size() == 0) {
 			System.out.println("No nodes to delete");
-		} else {
+		}
+		else {
 			int flag = 0;
 			INode<Integer> tempNode = this.head;
 			INode<Integer> prevNode = this.head;
@@ -90,12 +93,11 @@ public class MyLinkedList {
 			}
 			prevNode.setNext(tempNode.getNext());
 			flag++;
-			if (flag == 0) {
-				System.out.println("No node with key as " + nodeKey);
+			if(flag == 0) {
+				System.out.println("No node with key as "+nodeKey);
 			}
 		}
 	}
-
 	public void printMyNodes() {
 		INode<Integer> tempNode = this.head;
 		if (tempNode == null) {
