@@ -41,4 +41,23 @@ public class MyLinkedList {
 			this.tail = myNode;
 		}
 	}
+	public void addInMiddle(INode myNode) {
+		int middle = size()/2;
+		int index = 0;
+		INode<Integer> tempNode = this.head;
+		while(index+1 != middle) {
+			tempNode = tempNode.getNext();
+		}
+		myNode.setNext(tempNode.getNext());
+		tempNode.setNext(myNode);
+	}
+	public int size() {
+		INode<Integer> tempNode = this.head;
+		int count = 0;
+		while(tempNode != null) {
+			tempNode = tempNode.getNext();
+			count++;
+		}
+		return count;
+	}
 }
