@@ -51,6 +51,16 @@ public class MyLinkedList {
 		myNode.setNext(tempNode.getNext());
 		tempNode.setNext(myNode);
 	}
+	public boolean search(int k) {
+		INode tempNode = this.head;
+		while(tempNode != null) {
+			if(tempNode.getKey().equals(k)) {
+				return true;
+			}
+			tempNode = tempNode.getNext();
+		}
+		return false;
+	}
 	public INode popLast() {
 		int size = size();
 		if(size == 0) {
