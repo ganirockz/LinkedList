@@ -10,6 +10,7 @@ public class MyLinkedListTest {
 		linkedlist.append(myThirdNode);
 		linkedlist.append(myFirstNode);
 		linkedlist.addInMiddle(mySecondNode);
-		Assert.assertEquals(mySecondNode, linkedlist.getHead().getNext());
+		INode node = linkedlist.pop();
+		Assert.assertEquals(mySecondNode, node);
 	}
 }
