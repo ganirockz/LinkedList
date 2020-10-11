@@ -10,6 +10,8 @@ public class MyLinkedListTest {
 		linkedlist.append(myThirdNode);
 		linkedlist.append(myFirstNode);
 		linkedlist.addInMiddle(mySecondNode);
-		Assert.assertTrue(linkedlist.search(30));
+		linkedlist.insert(40, 30);
+		linkedlist.printMyNodes();
+		Assert.assertTrue(linkedlist.search(40));
 	}
 }
