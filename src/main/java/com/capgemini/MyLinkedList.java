@@ -16,4 +16,17 @@ public class MyLinkedList {
 	public void setHead(INode<Integer> head) {
 		this.head = head;
 	}
+	public void add(INode<Integer> myNode) {
+		if(this.tail == null) {
+			this.tail = myNode;
+		}
+		if(this.head == null) {
+			this.head = myNode;
+		}
+		else {
+			INode<Integer> tempNode = this.head;
+			this.head = myNode;
+			this.head.setNext(tempNode);
+		}
+	}
 }
